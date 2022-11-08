@@ -21,6 +21,14 @@ class MongooseTsgen extends Command {
       char: "d",
       description: "Print output rather than writing to file."
     }),
+    global: flags.boolean({
+      char: "g",
+      description: "Put in global namespace"
+    }),
+    namespace: flags.string({
+      char: "n",
+      description: "Namespace for generated interfaces."
+    }),
     help: flags.help({ char: "h" }),
     imports: flags.string({
       char: "i",
@@ -108,6 +116,8 @@ class MongooseTsgen extends Command {
         schemas,
         sourceFile,
         imports: flags.imports,
+        namespace: flags.namespace,
+        global: flags.global,
         noMongoose
       });
 

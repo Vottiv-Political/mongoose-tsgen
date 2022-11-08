@@ -232,7 +232,9 @@ export const generateTypes = ({
   sourceFile,
   schemas,
   imports = [],
-  noMongoose
+  noMongoose,
+  namespace,
+  global
 }: {
   sourceFile: SourceFile;
   schemas: {
@@ -240,11 +242,18 @@ export const generateTypes = ({
   };
   imports?: string[];
   noMongoose?: boolean;
+  namespace?: string;
+  global?: boolean;
 }) => {
   sourceFile.addStatements(writer => {
     writer.write(templates.MAIN_HEADER).blankLine();
     // mongoose import
     if (!noMongoose) writer.write(templates.MONGOOSE_IMPORT);
+
+    // Global and namespace
+    if (global) writer.write(templates.GLOBAL_NAMESPACE);
+
+    if (namespace) writer.write(templates.CUSTOM_NAMESPACE(namespace));
 
     // custom, user-defined imports
     if (imports.length > 0) writer.write(imports.join("\n"));
@@ -298,6 +307,9 @@ export const generateTypes = ({
 
       writer.write(documentInterfaceStr).blankLine();
     });
+
+    if(namespace) writer.write("}");
+    if(global) writer.write("}");
   });
 
   return sourceFile;
