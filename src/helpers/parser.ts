@@ -414,7 +414,7 @@ export const getParseKeyFn = (
         `${docRef}["_id"] | ${docRef}`;
     } else {
       // _ids are always required
-      if (key === "_id") isOptional = false;
+      if (key === "_id") isOptional = true;
       const convertedType = convertBaseTypeToTs(key, val, isDocument, noMongoose);
 
       // TODO: we should detect nested types from unknown types and handle differently.
