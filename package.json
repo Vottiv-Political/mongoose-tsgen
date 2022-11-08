@@ -79,6 +79,7 @@
     "prepack": "npm test && rm -rf lib && tsc -b",
     "test": "npx jest",
     "build": "npx tsc",
+    "postinstall": "tsc",
     "readme": "./node_modules/@oclif/dev-cli/bin/run readme"
   },
   "types": "lib/index.d.ts",
