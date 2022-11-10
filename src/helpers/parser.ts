@@ -385,7 +385,7 @@ export const getParseKeyFn = (
       if (!isDocument && !shouldLeanIncludeVirtuals) return "";
 
       valType = "any";
-      isOptional = false;
+      isOptional = true;
     } else if (
       key &&
       [
