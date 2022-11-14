@@ -29,6 +29,10 @@ class MongooseTsgen extends Command {
       char: "n",
       description: "Namespace for generated interfaces."
     }),
+    custom_module: flags.string({
+      char: "n",
+      description: "Module for generated interfaces."
+    }),
     help: flags.help({ char: "h" }),
     imports: flags.string({
       char: "i",
@@ -117,6 +121,7 @@ class MongooseTsgen extends Command {
         sourceFile,
         imports: flags.imports,
         namespace: flags.namespace,
+        custom_module: flags.custom_module,
         global: flags.global,
         noMongoose
       });

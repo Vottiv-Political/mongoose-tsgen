@@ -234,6 +234,7 @@ export const generateTypes = ({
   imports = [],
   noMongoose,
   namespace,
+  custom_module,
   global
 }: {
   sourceFile: SourceFile;
@@ -243,6 +244,7 @@ export const generateTypes = ({
   imports?: string[];
   noMongoose?: boolean;
   namespace?: string;
+  custom_module?: string;
   global?: boolean;
 }) => {
   sourceFile.addStatements(writer => {
@@ -253,6 +255,7 @@ export const generateTypes = ({
     // Global and namespace
     if (global) writer.write(templates.GLOBAL_NAMESPACE);
 
+    if (custom_module) writer.write(templates.CUSTOM_MODULE(custom_module));
     if (namespace) writer.write(templates.CUSTOM_NAMESPACE(namespace));
 
     // custom, user-defined imports
@@ -308,6 +311,7 @@ export const generateTypes = ({
       writer.write(documentInterfaceStr).blankLine();
     });
 
+    if(custom_module) writer.write("}");
     if(namespace) writer.write("}");
     if(global) writer.write("}");
   });

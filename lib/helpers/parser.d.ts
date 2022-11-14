@@ -5,7 +5,7 @@ export declare const convertToSingular: (str: string) => string;
 export declare const parseFunctions: (funcs: any, modelName: string, funcType: "methods" | "statics" | "query") => string;
 export declare const convertBaseTypeToTs: (key: string, val: any, isDocument: boolean, noMongoose?: boolean) => string | undefined;
 export declare const getParseKeyFn: (isDocument: boolean, shouldLeanIncludeVirtuals: boolean, noMongoose: boolean) => (key: string, valOriginal: any) => string;
-export declare const parseSchema: ({ schema, modelName, isDocument, header, footer, noMongoose, shouldLeanIncludeVirtuals }: {
+export declare const parseSchema: ({ schema: schemaOriginal, modelName, isDocument, header, footer, noMongoose, shouldLeanIncludeVirtuals }: {
     schema: any;
     modelName?: string | undefined;
     isDocument: boolean;

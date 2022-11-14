@@ -2,6 +2,7 @@ export const MAIN_HEADER = `/* tslint:disable */\n/* eslint-disable */\n\n// ###
 export const MONGOOSE_IMPORT = `import mongoose from "mongoose";`;
 export const GLOBAL_NAMESPACE = `declare global {`
 export const CUSTOM_NAMESPACE = (CUSTOM_NAMESPACE_NAME: string) => `declare namespace ${CUSTOM_NAMESPACE_NAME} {`
+export const CUSTOM_MODULE = (CUSTOM_MODULE_NAME: string) => `declare module '${CUSTOM_MODULE_NAME}' {`
 
 export const POPULATE_HELPERS = `/**
  * Check if a property on a document is populated:

@@ -1,3 +1,3 @@
-export declare const getConfigFromFile: (configPath?: string) => object;
-export declare const getModelsPaths: (basePath?: string) => string[];
-export declare const cleanOutputPath: (outputPath: string) => any;
+export declare const getConfigFromFile: (configPath?: string | undefined) => object;
+export declare const getModelsPaths: (basePath?: string | undefined) => string[];
+export declare const cleanOutputPath: (outputPath: string) => string;
